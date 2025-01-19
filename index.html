@@ -1,93 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Toggle Button</title>
-    <style>
-        /* Base Styles */
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            transition: background-color 0.3s, color 0.3s;
-            background-color: #ffffff; /* Default Light Mode */
-            color: #000000;
-        }
-
-        h1 {
-            font-size: 2rem;
-            margin-top: 20px;
-        }
-
-        /* Toggle Switch Styles */
-        .toggle-switch {
-            position: relative;
-            width: 60px;
-            height: 30px;
-            background-color: #ddd;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .toggle-switch::before {
-            content: '';
-            position: absolute;
-            top: 5px;
-            left: 5px;
-            width: 20px;
-            height: 20px;
-            background-color: #ffffff;
-            border-radius: 50%;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s;
-        }
-
-        .toggle-switch.dark {
-            background-color: #333;
-        }
-
-        .toggle-switch.dark::before {
-            transform: translateX(30px);
-            background-color: #ffd700;
-        }
-
-        .icon {
-            position: absolute;
-            top: 7px;
-            right: 7px;
-            font-size: 14px;
-            display: none;
-        }
-
-        .toggle-switch.dark .icon {
-            display: block;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopping Cart</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    .container {
+      display: flex;
+      gap: 20px;
+    }
+    .products, .cart {
+      border: 1px solid #ccc;
+      padding: 20px;
+      width: 300px;
+    }
+    .product {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+    .total {
+      font-weight: bold;
+      text-align: right;
+    }
+    button {
+      width: 30px;
+      height: 30px;
+      font-size: 16px;
+      margin: 0 5px;
+    }
+    .quantity {
+      width: 40px;
+      text-align: center;
+    }
+  </style>
 </head>
 <body>
-    <div class="toggle-switch" id="toggleSwitch">
-        <span class="icon">🌙</span>
+
+<div class="container">
+  <!-- Products Section -->
+  <div class="products">
+    <h3>Products</h3>
+    <div class="product" data-price="100" data-name="Product-1">
+      <span>Product-1</span>
+      <span>100</span>
+      <button class="decrease">-</button>
+      <input class="quantity" type="text" value="0" readonly>
+      <button class="increase">+</button>
     </div>
-    <h1>Click on the Toggle Button</h1>
+    <div class="product" data-price="200" data-name="Product-2">
+      <span>Product-2</span>
+      <span>200</span>
+      <button class="decrease">-</button>
+      <input class="quantity" type="text" value="0" readonly>
+      <button class="increase">+</button>
+    </div>
+    <div class="product" data-price="300" data-name="Product-3">
+      <span>Product-3</span>
+      <span>300</span>
+      <button class="decrease">-</button>
+      <input class="quantity" type="text" value="0" readonly>
+      <button class="increase">+</button>
+    </div>
+  </div>
 
-    <script>
-        const toggleSwitch = document.getElementById('toggleSwitch');
-        const body = document.body;
+  <!-- Cart Section -->
+  <div class="cart">
+    <h3>Cart</h3>
+    <div class="cart-items">
+      <!-- Items will be dynamically added here -->
+       No products added to the cart.
+    </div>
+    <div class="total">Total: 0</div>
+  </div>
+</div>
 
-        toggleSwitch.addEventListener('click', () => {
-            toggleSwitch.classList.toggle('dark');
-            const isDark = toggleSwitch.classList.contains('dark');
+<script src="index.js"></script>
 
-            // Toggle Light/Dark mode
-            body.style.backgroundColor = isDark ? '#121212' : '#ffffff';
-            body.style.color = isDark ? '#ffffff' : '#000000';
-        });
-    </script>
 </body>
 </html>
