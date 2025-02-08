@@ -1,9 +1,14 @@
+const myPromise = () => Promise.resolve('I have resolved!');
 
-    const div = document.getElementById('myDiv');
-    div.style.backgroundColor = "yellow";
-    div.style.margin = "20px";
-    div.style.fontSize = "18px";
-    div.style.padding = "10px";
-    div.style.fontWeight = "bold";
-    div.style.height = '200px';
-    div.style.width = '300px';
+function firstFunction() {
+  myPromise().then(res => console.log(res));
+  console.log('first');
+}
+
+async function secondFunction() {
+  console.log(await myPromise());
+  console.log('second');
+}
+
+firstFunction();
+secondFunction();

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digital Clock</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      color: #fff;
+      background: url('image.png') no-repeat center center fixed;
+      background-size: cover;
+    }
+
+    .clock-container {
+      margin-top: 15%;
+      display: inline-block;
+      padding: 20px 40px;
+      border-radius: 15px;
+      background: rgba(42, 2, 244, 0.5);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .time {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      font-size: 3em;
+      font-weight: bold;
+    }
+
+    .time div {
+      background: rgba(255, 255, 255, 0.278);
+      padding: 10px 20px;
+      border-radius: 8px;
+    }
+
+    .label {
+      font-size: 0.8em;
+      margin-top: 5px;
+    }
+
+    .am-pm {
+      margin-top: 20px;
+      font-size: 1.5em;
+      font-weight: bold;
+      background: #32cd32;
+      padding: 5px 15px;
+      border-radius: 8px;
+      display: inline-block;
+    }
+  </style>
+</head>
+<body>
+  <div class="clock-container">
+    <h1>DIGITAL CLOCK</h1>
+    <div class="time">
+      <div>
+        <div id="hours">00</div>
+        <div class="label">HOURS</div>
+      </div>
+      <div>
+        <div id="minutes">00</div>
+        <div class="label">MINUTES</div>
+      </div>
+      <div>
+        <div id="seconds">00</div>
+        <div class="label">SECONDS</div>
+      </div>
+    </div>
+    <div id="am-pm" class="am-pm">AM</div>
+  </div>
+
+  <script>
+    function updateClock() {
+      const now = new Date();
+      let hours = now.getHours();
+      const minutes = String(now.getMinutes()).padStart(2, '0');
+      const seconds = String(now.getSeconds()).padStart(2, '0');
+      const amPm = hours >= 12 ? 'PM' : 'AM';
+
+      // Convert to 12-hour format
+      hours = hours % 12 || 12;
+
+      document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+      document.getElementById('minutes').textContent = minutes;
+      document.getElementById('seconds').textContent = seconds;
+      document.getElementById('am-pm').textContent = amPm;
+    }
+
+    // Update clock every second
+    setInterval(updateClock, 1000);
+
+    // Initialize clock
+    updateClock();
+  </script>
+</body>
+</html>

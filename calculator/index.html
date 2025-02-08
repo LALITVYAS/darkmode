@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age Calculator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-blue-500 flex items-center justify-center min-h-screen font-sans">
+
+    <div class="space-y-8 text-center">
+    <!-- Input Section -->
+    <div class="bg-black p-6 rounded-lg shadow-lg flex items-center justify-between space-x-4">
+      <input 
+        type="date" 
+        id="date-input" 
+        class="text-black rounded-md px-4 py-2 outline-none focus:ring-2 focus:ring-blue-400"
+      />
+      <button 
+        onclick="calculateAge()" 
+        class="bg-white text-black px-6 py-2 font-bold rounded-md hover:bg-gray-200">
+        Calculate
+      </button>
+    </div>
+
+    <!-- Result Section -->
+    <div class="grid grid-cols-3 gap-4">
+      <div class="bg-black text-white p-6 rounded-lg shadow-lg">
+        <h2 id="years" class="text-4xl font-bold">0</h2>
+        <p class="mt-2">Years</p>
+      </div>
+      <div class="bg-black text-white p-6 rounded-lg shadow-lg">
+        <h2 id="months" class="text-4xl font-bold">0</h2>
+        <p class="mt-2">Months</p>
+      </div>
+      <div class="bg-black text-white p-6 rounded-lg shadow-lg">
+        <h2 id="days" class="text-4xl font-bold">0</h2>
+        <p class="mt-2">Days</p>
+      </div>
+    </div>
+  </div>
+
+      <script src="cal.js"></script>
+</body>
+</html>
